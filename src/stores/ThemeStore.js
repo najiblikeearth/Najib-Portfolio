@@ -8,6 +8,13 @@ export const useThemeStore = defineStore("theme", () => {
     function setTheme(newTheme) {
         theme.value = newTheme;
         document.documentElement.setAttribute("data-theme", newTheme);
+
+        // Update body class for additional styling
+        if (newTheme === "dark") {
+            document.body.classList.add("dark");
+        } else {
+            document.body.classList.remove("dark");
+        }
     }
 
     return { theme, setTheme };

@@ -1,3 +1,69 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body {
+        @apply text-base-content;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Smooth transitions for common elements */
+    button,
+    a,
+    div,
+    span,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        transition: background-color 0.3s ease, color 0.3s ease,
+            border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+}
+
+/* Custom scrollbar for light and dark mode */
+@layer utilities {
+    /* For Webkit browsers */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-base-200;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-primary/50 rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-primary;
+    }
+
+    /* For Firefox */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(16, 185, 129, 0.5) #e5e7eb;
+    }
+
+    .dark * {
+        scrollbar-color: rgba(16, 185, 129, 0.5) #1f2937;
+    }
+
+    /* Gradient backgrounds */
+    .gradient-light {
+        background: linear-gradient(to right, #0f766e, #10b981);
+    }
+
+    .gradient-dark {
+        background: linear-gradient(to right, #0f172a, #1e293b);
+    }
+}

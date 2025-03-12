@@ -1,9 +1,19 @@
 <template>
     <div
-        class="min-h-screen bg-gradient-to-r from-teal-700 to-green-400 flex justify-center items-center font-montserrat"
+        class="min-h-screen flex justify-center items-center font-montserrat transition-colors duration-300"
+        :class="{
+            'bg-gradient-to-r from-teal-700 to-green-400':
+                themeStore.theme === 'light',
+            'bg-gradient-to-r from-slate-900 to-slate-700':
+                themeStore.theme === 'dark',
+        }"
     >
         <div
-            class="bg-white min-h-[90vh] rounded-lg shadow-lg p-6 sm:p-8 w-full max-w-6xl relative"
+            class="min-h-[90vh] rounded-lg shadow-lg p-6 sm:p-8 w-full max-w-6xl relative"
+            :class="{
+                'bg-white': themeStore.theme === 'light',
+                'bg-base-100': themeStore.theme === 'dark',
+            }"
         >
             <!-- Header -->
             <Header />
@@ -32,4 +42,7 @@
 <script setup>
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
+import { useThemeStore } from "./stores/ThemeStore";
+
+const themeStore = useThemeStore();
 </script>

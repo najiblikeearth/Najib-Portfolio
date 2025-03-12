@@ -1,5 +1,5 @@
 <template>
-    <header class="flex items-center justify-between mb-6">
+    <header class="flex items-center justify-between mb-6 text-base-content">
         <div class="navbar-start flex items-center">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -25,7 +25,7 @@
                     <li v-for="navlg in linkNav" :key="navlg.id">
                         <RouterLink
                             :to="{ name: navlg.urlName }"
-                            class="hover:bg-teal-700 hover:text-white rounded px-2 py-1"
+                            class="hover:bg-primary hover:text-white rounded px-2 py-1"
                         >
                             {{ navlg.name }}
                         </RouterLink>
@@ -43,7 +43,7 @@
                 <li v-for="navlg in linkNav" :key="navlg.id">
                     <RouterLink
                         :to="{ name: navlg.urlName }"
-                        class="hover:bg-teal-700 hover:text-white rounded px-2 py-1"
+                        class="hover:bg-primary hover:text-white rounded px-2 py-1"
                     >
                         {{ navlg.name }}
                     </RouterLink>
@@ -51,11 +51,25 @@
             </ul>
         </div>
 
-        <div class="navbar-end text-right">
+        <div class="navbar-end text-right flex items-center gap-2">
+            <!-- Theme Toggle Button -->
+            <button
+                @click="toggleTheme"
+                class="btn btn-circle btn-ghost"
+                aria-label="Toggle theme"
+            >
+                <v-icon
+                    v-if="themeStore.theme === 'light'"
+                    name="fa-moon"
+                    class="text-xl"
+                />
+                <v-icon v-else name="fa-sun" class="text-xl text-yellow-400" />
+            </button>
+
             <a
-                href="/CV_M_Khusyasy_Najib_D.pdf"
-                download="CV_M_Khusyasy_Najib_D.pdf"
-                class="btn btn-md bg-teal-700 text-white hover:bg-teal-900"
+                :href="'/CV_M_Khusyasy_Najib_D.pdf'"
+                download
+                class="btn btn-md bg-primary text-white hover:bg-secondary"
             >
                 Download CV
             </a>
@@ -64,9 +78,18 @@
 </template>
 
 <script setup>
+import { useThemeStore } from "../stores/ThemeStore";
+
+const themeStore = useThemeStore();
+
 const linkNav = [
     { id: 1, name: "About", urlName: "About" },
     { id: 2, name: "Portfolio", urlName: "Portfolio" },
     { id: 3, name: "Experience", urlName: "Experience" },
 ];
+
+function toggleTheme() {
+    const newTheme = themeStore.theme === "light" ? "dark" : "light";
+    themeStore.setTheme(newTheme);
+}
 </script>

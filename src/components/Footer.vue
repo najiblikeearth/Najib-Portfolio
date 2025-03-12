@@ -1,9 +1,9 @@
 <template>
-    <footer class="footer footer-center sticky-footer mb-5">
+    <footer class="footer footer-center sticky-footer mb-5 text-base-content">
         <aside>
             <p>
                 © {{ new Date().getFullYear() }} - All right reserved by
-                JustNajib
+                <span class="text-primary font-semibold">JustNajib</span>
             </p>
         </aside>
     </footer>

@@ -21,5 +21,14 @@ app.use(pinia);
 
 app.mount("#app");
 
+// Apply saved theme or default to light
 const themeStore = useThemeStore();
-document.documentElement.setAttribute("data-theme", themeStore.theme);
+const savedTheme = localStorage.getItem("theme") || "light";
+themeStore.setTheme(savedTheme);
+
+// Add class to body for additional theme styling
+if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+} else {
+    document.body.classList.remove("dark");
+}

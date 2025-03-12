@@ -1,7 +1,11 @@
 <template>
-    <h1 class="text-xl sm:text-2xl font-semibold text-teal-700 mt-2 mb-3">
-        {{ title }}
-    </h1>
+    <div class="w-full text-center mb-8">
+        <h1
+            class="text-2xl sm:text-3xl font-bold text-primary mt-2 mb-3 inline-block"
+        >
+            {{ title }}
+        </h1>
+    </div>
 </template>
 
 <script setup>
