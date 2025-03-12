@@ -34,7 +34,7 @@
 <script setup>
 import Title from "./Title.vue";
 import porto1 from "@/assets/img/port-lib.png";
-import porto2 from "@/assets/img/port-task.jpg";
+import porto2 from "@/assets/img/port-task.jpeg";
 import porto3 from "@/assets/img/port-elec.png";
 
 const projects = [
