@@ -67,7 +67,7 @@
             </button>
 
             <a
-                :href="'/CV_M_Khusyasy_Najib_D.pdf'"
+                :href="'/CV-Muhammad Khusyasy Najib Dzaluli.pdf'"
                 download
                 class="btn btn-md bg-primary text-white hover:bg-secondary"
             >
