@@ -49,7 +49,7 @@
                         ></v-icon>
                     </a>
                     <a
-                        href="https://wa.me/6285759613143"
+                        href="https://wa.me/628979774140"
                         target="0"
                         class="mx-2"
                     >
